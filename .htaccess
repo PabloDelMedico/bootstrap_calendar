@@ -6,5 +6,5 @@
 	RewriteRule ^(.*)$ /bootstrap_calendar/index.php/$1 [L] 
 </IfModule>
 <IfModule !mod_rewrite.c>
-    ErrorDocument 404 /calendario_bootstrap/index.php 
+    ErrorDocument 404 /bootstrap_calendar/index.php 
 </IfModule>
