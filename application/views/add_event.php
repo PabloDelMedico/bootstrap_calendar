@@ -45,11 +45,35 @@
                     </div>
                 </div>
 
-                <!-- Titulo -->
+                <!-- Nombre Padre-->
                 <div class="form-group">
-                    <label for="title" class="col-sm-12 control-label">Título</label>
+                    <label for="name" class="col-sm-12 control-label">Nombre Padre</label>
                     <div class="col-sm-12">
-                        <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título">
+                        <input type="text" name="name_parent" class="form-control" id="name_parent" placeholder="Nombre">
+                    </div>
+                </div>
+
+                <!-- Cel -->
+                <div class='col-md-6 col-sm-6'>
+                    <div class="form-group">
+                        <label for="cel" class="control-label">Celular</label>
+                        <input type="tel" name="cel" class="form-control" id="cel" placeholder="Celular">
+                    </div>
+                </div>
+
+                <!-- Tel -->
+                <div class='col-md-6 col-sm-6'>
+                    <div class="form-group">
+                        <label for="tel" class="control-label">Telefono</label>
+                        <input type="tel" name="tel" class="form-control" id="tel" placeholder="Telefono">
+                    </div>
+                </div>
+
+                <!-- Mail -->
+                <div class='col-md-6'>
+                    <div class="form-group">
+                        <label for="mail" class="control-label">Mail</label>
+                        <input type="mail" name="mail" class="form-control" id="mail" placeholder="Mail">
                     </div>
                 </div>
 
@@ -57,44 +81,20 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-12 control-label">Nombre</label>
                     <div class="col-sm-12">
-                        <input type="text" name="name" class="form-control" id="url" placeholder="Nombre">
-                    </div>
-                </div>
-
-                <!-- Cel -->
-                <div class='col-md-6'>
-                    <div class="form-group">
-                        <label for="tel" class="control-label">Celular</label>
-                        <input type="tel" name="cel" class="form-control" id="url" placeholder="Celular">
-                    </div>
-                </div>
-
-                <!-- Tel -->
-                <div class='col-md-6'>
-                    <div class="form-group">
-                        <label for="tel" class="control-label">Telefono</label>
-                        <input type="tel" name="tel" class="form-control" id="url" placeholder="Telefono">
-                    </div>
-                </div>
-
-                <!-- Mail -->
-                <div class='col-md-6'>
-                    <div class="form-group">
-                        <label for="url" class="control-label">Mail</label>
-                        <input type="mail" name="mail" class="form-control" id="url" placeholder="Mail">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nombre">
                     </div>
                 </div>
 
                 <!-- Edad -->
-                <div class='col-md-6'>
+                <div class='col-md-6 col-xs-6'>
                     <div class="form-group">
-                        <label for="url" class="control-label">Edad</label>
-                        <input type="mail" name="mail" class="form-control" id="url" placeholder="Mail">
+                        <label for="edad" class="control-label">Edad</label>
+                        <input type="text" name="edad" class="form-control" id="edad" placeholder="Edad">
                     </div>
                 </div>
 
                 <!-- Sexo -->
-                <div class='col-md-6'>
+                <div class='col-md-6 col-xs-6'>
                     <div class="form-group">
                         <label class="control-label">Sexo</label>
                         <select class="form-control" name="sexo">
@@ -104,31 +104,57 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+<!--                 <div class="form-group">
                     <label for="url" class="col-sm-12 control-label">Enlace al evento</label>
                     <div class="col-sm-12">
                         <input type="url" name="url" class="form-control" id="url" placeholder="Introduce una url o no :)">
                     </div>
-                </div>
+                </div> -->
 
+                <!-- Tipo de evento -->
                 <div class="form-group">
                     <label class="col-sm-12 control-label">Tipo de evento</label>
                     <div class="col-sm-12">
                         <select class="form-control" name="class">
-                            <option value="event-info">Info</option>
-                            <option value="event-success">Success</option>
-                            <option value="event-inverse">Inverse</option>
-                            <option value="event-important">Important</option>
+                            <option value="event-info">Cumpleaños</option>
+                            <option value="event-success">Princesas</option>
+                            <option value="event-inverse">Spa</option>
+                            <option value="event-important">Fiesta</option>
                             <option value="event-warning">Warning</option>
                             <option value="event-special">Special</option>
                         </select>
                     </div>
                 </div>
 
+                <!-- Cantidad Adultos -->
+                <div class='col-md-6 col-xs-6'>
+                    <div class="form-group">
+                        <label for="mail" class="control-label">Cantidad adultos</label>
+                        <input type="text" name="cant_adultos" class="form-control" id="cant_adultos" placeholder="Cantidad adultos">
+                    </div>
+                </div>
+
+
+                <!-- Cantidad Chicos -->
+                <div class='col-md-6 col-xs-6'>
+                    <div class="form-group">
+                        <label for="mail" class="control-label">Cantidad chicos</label>
+                        <input type="text" name="cant_chicos" class="form-control" id="cant_chicos" placeholder="Cantidad chicos">
+                    </div>
+                </div>
+
+                <!-- Titulo -->
+<!--                 <div class="form-group">
+                    <label for="title" class="col-sm-12 control-label">Título</label>
+                    <div class="col-sm-12">
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título">
+                    </div>
+                </div> -->
+
                 <div class="form-group">
                     <label for="body" class="col-sm-12 control-label">Evento</label>
                     <div class="col-sm-12">
-                        <textarea id="body" name="event" class="form-control" rows="3"></textarea>
+                        <textarea id="body" name="event" class="form-control" rows="3" placeholder="Introduce información y contrataciones adicionales"></textarea>
                     </div>
                 </div>
 
