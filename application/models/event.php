@@ -8,9 +8,8 @@ class Event extends DataMapper
 	public function __construct()
 	{
 		parent::__construct();
-		date_default_timezone_set("Europe/Madrid");
+		date_default_timezone_set("America/Argentina/Buenos_Aires");
 
-		// $this->load->model("person_model");
 	}
 
 	// /**
@@ -43,17 +42,14 @@ class Event extends DataMapper
 	*/
 	public function add()
 	{
-		// var_dump($this->class);die;
 
-		// $e = new Event();
-		// $e->start= $this->_formatDate($this->input->post("from"));
-		// $e->end= $this->_formatDate($this->input->post("to"));
-		// $e->url= $this->input->post("url");
-		// $e->title= $this->input->post("title");
-		// $e->body= $this->input->post("event");
-		// $e->class= $this->input->post("class");
+
+		$this->start= $this->_formatDate($this->start);
+		$this->end= $this->_formatDate($this->end);
 
 		$this->save();
+
+
 
 		// if($this->db->insert("events"))
 		// {
@@ -68,14 +64,26 @@ class Event extends DataMapper
 	* @author Iparra
 	* @return object
 	*/
+	// public function getAll()
+	// {
+	// 	$query = $this->db->get('events');
+	// 	if($query->num_rows() > 0)
+	// 	{
+	// 		return $query->result();
+	// 	}
+	// 	return object();
+	// }
+
 	public function getAll()
 	{
-		$query = $this->db->get('events');
-		if($query->num_rows() > 0)
-		{
-			return $query->result();
-		}
-		return object();
+		// $query = $this->db->get('events');
+		// if($query->num_rows() > 0)
+		// {
+		// 	return $query->result();
+		// }
+		// return object();
+
+		return $this->get();
 	}
 
 	/**

@@ -16,7 +16,7 @@ class Person extends DataMapper
 	* @author Iparra
 	* @return bool
 	*/
-	public function add($name)
+	public function add()
 	{
 		// $this->db->set("nombre", $this->input->post("name"));
 		// $this->db->set("cel", $this->input->post("cel"));
@@ -30,7 +30,8 @@ class Person extends DataMapper
 		// }
 		// return FALSE;
 
-		$this->db->set("nombre", $name);
-		$this->db->insert("persona");
+		$this->save();
+		return $this->db->insert_id();
+
 	}
 }

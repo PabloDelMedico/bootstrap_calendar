@@ -39,25 +39,66 @@ class Events extends CI_Controller {
 
 
         $e = new Event();
-
         $e->start= $this->input->post("from");
 		$e->end= $this->input->post("to");
-		$e->url= $this->input->post("url");
-		$e->title= $this->input->post("title");
-		$e->body= $this->input->post("event");
 		$e->class= $this->input->post("class");
+		$e->cant_adultos= $this->input->post("cant_adultos");
+		$e->cant_chicos= $this->input->post("cant_chicos");
+		$e->description= $this->input->post("description_event");
+
+		$p = new Person();
+		$p->nombre_padre= $this->input->post("name_parent");
+		$p->cel= $this->input->post("cel");
+		$p->tel= $this->input->post("tel");
+		$p->mail= $this->input->post("mail");
+		$p->nombre= $this->input->post("name");
+		$p->edad= $this->input->post("edad");
+		$p->sexo= $this->input->post("sexo");
+
+		// Adding foreign key
+		$e->persona_id= $p->add();
 
         $e->add();
 
-        // redirect("calendar");
+        redirect("calendar");
 	}
+
+	// public function getAll()
+	// {
+	// 	if($this->input->is_ajax_request())
+	// 	{
+	// 		$this->load->model('event');
+	// 		$events = $this->events->getAll();
+	// 		echo json_encode(
+	// 			array(
+	// 				"success" => 1,
+	// 				"result" => $events
+	// 			)
+	// 		);
+	// 	}
+
+
+	// }
 
 	public function getAll()
 	{
 		if($this->input->is_ajax_request())
 		{
-			$this->load->model('event');
-			$events = $this->events->getAll();
+			$e = new Event();
+			$e->getAll();
+
+			$events = array();
+			$i=0;
+			foreach ($e as $obj) 
+			{
+				$events[$i]['id']= $obj->id;
+				$events[$i]['title']= $obj->title;
+				$events[$i]['class']= $obj->class;
+				$events[$i]['start']= $obj->start;
+				$events[$i]['end']= $obj->end;
+				$i++;
+			}
+
 			echo json_encode(
 				array(
 					"success" => 1,
@@ -65,8 +106,9 @@ class Events extends CI_Controller {
 				)
 			);
 		}
-	}
 
+
+	}
 	public function render($id = 0)
 	{
 		if($id != 0)
