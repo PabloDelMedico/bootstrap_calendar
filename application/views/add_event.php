@@ -13,8 +13,8 @@
     <script src="<?php echo base_url() ?>bower_components/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.es.js"></script>
 </head>
 <body>
-<div class="container">
 
+<div class="container">
     <ol class="breadcrumb">
         <li><a href="<?php echo base_url() ?>calendar">Calendario</a></li>
         <li><a href="<?php echo base_url() ?>events">Añadir evento</a></li>
@@ -115,7 +115,7 @@
             <div class="form-group">
                 <label for="title" class="col-sm-12 control-label">Título del evento</label>
                 <div class="col-sm-12">
-                    <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título">
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título" value="<?=$event->title ?>">
                 </div>
             </div>
 

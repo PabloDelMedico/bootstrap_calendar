@@ -2,7 +2,7 @@
 
 class Events extends CI_Controller {
 
-	public function index($id = 0)
+	public function index()
 	{
 		$this->load->view("add_event");
 	}
@@ -116,7 +116,13 @@ class Events extends CI_Controller {
 	{
 		if($id != 0)
 		{
-			echo $id;
+            $e = new Event();
+            $e->getEvent($id);
+
+            $data['event']=$e;
+            $data['pablo']='pablo';
+
+            $this->load->view("add_event", $data);
 		}
 	}
 }

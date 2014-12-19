@@ -97,6 +97,19 @@ class Event extends DataMapper
 		return $this->get();
 	}
 
+    public function getEvent($id)
+    {
+        // $query = $this->db->get('events');
+        // if($query->num_rows() > 0)
+        // {
+        // 	return $query->result();
+        // }
+        // return object();
+
+        return $this->where('id', $id)->get();
+
+    }
+
 	/**
 	* @desc - formatea una fecha a microtime para añadir al evento tipo 1401517498985
 	* @access private
