@@ -2,7 +2,7 @@
 
 class Events extends CI_Controller {
 
-	public function index()
+	public function index($id = 0)
 	{
 		$this->load->view("add_event");
 	}
@@ -45,6 +45,8 @@ class Events extends CI_Controller {
 		$e->cant_adultos= $this->input->post("cant_adultos");
 		$e->cant_chicos= $this->input->post("cant_chicos");
 		$e->description= $this->input->post("description_event");
+        $e->title= $this->input->post("title");
+        $e->menu= $this->input->post("menu");
 
 		$p = new Person();
 		$p->nombre_padre= $this->input->post("name_parent");
@@ -96,6 +98,7 @@ class Events extends CI_Controller {
 				$events[$i]['class']= $obj->class;
 				$events[$i]['start']= $obj->start;
 				$events[$i]['end']= $obj->end;
+                $events[$i]['url']= $obj->url;
 				$i++;
 			}
 

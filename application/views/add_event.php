@@ -111,6 +111,14 @@
                                 </div>
                             </div> -->
 
+            <!-- Titulo -->
+            <div class="form-group">
+                <label for="title" class="col-sm-12 control-label">Título del evento</label>
+                <div class="col-sm-12">
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título">
+                </div>
+            </div>
+
             <!-- Tipo de evento -->
             <div class="form-group">
                 <label class="col-sm-12 control-label">Tipo de evento</label>
@@ -123,6 +131,18 @@
                         <option value="event-important">Fiesta</option>
                         <option value="event-warning">Warning</option>
                         <option value="event-special">Special</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- mENU de evento -->
+            <div class="form-group">
+                <label class="col-sm-12 control-label">Menu</label>
+
+                <div class="col-sm-12">
+                    <select class="form-control" name="menu">
+                        <option value="event-info">Lunch</option>
+                        <option value="event-success">Asado</option>
                     </select>
                 </div>
             </div>
@@ -145,14 +165,6 @@
                            placeholder="Cantidad chicos">
                 </div>
             </div>
-
-            <!-- Titulo -->
-            <!--                 <div class="form-group">
-                                <label for="title" class="col-sm-12 control-label">Título</label>
-                                <div class="col-sm-12">
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Introduce un título">
-                                </div>
-                            </div> -->
 
             <div class="form-group">
                 <label for="body" class="col-sm-12 control-label">Evento</label>

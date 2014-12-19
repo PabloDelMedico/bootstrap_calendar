@@ -12,6 +12,17 @@ class Event extends DataMapper
 
 	}
 
+    /**
+     * @desc -
+     * @access public
+     * @author Iparra
+     * @return bool
+     */
+    public function index($id=0)
+    {
+//        return $this->get($id);
+    }
+
 	// /**
 	// * @desc - añade un nuevo evento
 	// * @access public
