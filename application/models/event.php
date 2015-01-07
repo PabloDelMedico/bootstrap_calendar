@@ -3,7 +3,7 @@
 class Event extends DataMapper 
 {
 
-	var $has_one = array("person");
+//	var $has_one = array("person");
 
 	public function __construct()
 	{
@@ -53,10 +53,14 @@ class Event extends DataMapper
 	*/
 	public function add()
 	{
+        //Saving start and end without formatting them
+        $this->start_noformat= $this->start;
+        $this->end_noformat= $this->end;
 
-
-		$this->start= $this->_formatDate($this->start);
+        $this->start= $this->_formatDate($this->start);
 		$this->end= $this->_formatDate($this->end);
+
+        $this->url= base_url().'events/edit/'.$this->db->insert_id();
 
 		$this->save();
 
@@ -106,7 +110,36 @@ class Event extends DataMapper
         // }
         // return object();
 
-        return $this->where('id', $id)->get();
+       return $this->where('id', $id)->get();
+
+
+
+    }
+
+    public function deleteEvent($id)
+    {
+        $this->where('id', $id)->get();
+
+        $p= new Person();
+        $p->where('id', $this->persona_id)->get();
+
+        $this->delete();
+        $p->delete();
+
+    }
+
+    public function updateEvent()
+    {
+        //Saving start and end without formatting them
+        $this->start_noformat= $this->start;
+        $this->end_noformat= $this->end;
+
+        $this->start= $this->_formatDate($this->start);
+        $this->end= $this->_formatDate($this->end);
+
+//        $this->url= base_url().'events/edit/'.$this->db->insert_id();
+
+        $this->save();
 
     }
 
@@ -118,7 +151,8 @@ class Event extends DataMapper
 	*/
 	private function _formatDate($date)
 	{
-		return strtotime(substr($date, 6, 4)."-".substr($date, 3, 2)."-".substr($date, 0, 2)." " .substr($date, 10, 6)) * 1000;
+//		return strtotime(substr($date, 6, 4)."-".substr($date, 3, 2)."-".substr($date, 0, 2)." " .substr($date, 10, 6)) * 1000;
+        return strtotime(substr($date, 0, 2)."/".substr($date, 3, 2)."/".substr($date, 6, 4)." " .substr($date, 10, 6)) * 1000;
 	}
 }
 /* End of file events_model.php */

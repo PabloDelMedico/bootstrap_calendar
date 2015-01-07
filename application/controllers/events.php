@@ -112,19 +112,67 @@ class Events extends CI_Controller {
 
 
 	}
-	public function render($id = 0)
+	public function edit($id = 0)
 	{
 		if($id != 0)
 		{
             $e = new Event();
             $e->getEvent($id);
-
             $data['event']=$e;
-            $data['pablo']='pablo';
 
-            $this->load->view("add_event", $data);
+            $p = new Person();
+            $p->getPerson($e->persona_id);
+            $data['person']=$p;
+
+            $this->load->view("edit_event", $data);
 		}
 	}
+
+    public function delete($id = 0)
+    {
+        if($id != 0)
+        {
+            $e = new Event();
+            $e->deleteEvent($id);
+
+        }
+    }
+
+    public function update($id = 0)
+    {
+        if($id != 0)
+        {
+            $e = new Event();
+            $e->where('id', $id)->get();
+
+            $e->start= $this->input->post("from");
+            $e->end= $this->input->post("to");
+            $e->class= $this->input->post("class");
+            $e->cant_adultos= $this->input->post("cant_adultos");
+            $e->cant_chicos= $this->input->post("cant_chicos");
+            $e->description= $this->input->post("description_event");
+            $e->title= $this->input->post("title");
+            $e->menu= $this->input->post("menu");
+
+            $p = new Person();
+            $p->where('id', $e->persona_id)->get();
+
+            $p->nombre_padre= $this->input->post("name_parent");
+            $p->cel= $this->input->post("cel");
+            $p->tel= $this->input->post("tel");
+            $p->mail= $this->input->post("mail");
+            $p->nombre= $this->input->post("name");
+            $p->edad= $this->input->post("edad");
+            $p->sexo= $this->input->post("sexo");
+
+            // Save changes to existing user
+            $e->updateEvent();
+            $p->update();
+
+            redirect("calendar");
+
+        }
+    }
 }
 
 

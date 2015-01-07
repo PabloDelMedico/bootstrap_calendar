@@ -3,7 +3,7 @@
 class Person extends DataMapper 
 {
 
-	var $has_many = array("event");
+//	var $has_one = array("event");
 
     function __construct($id = NULL)
     {
@@ -18,20 +18,20 @@ class Person extends DataMapper
 	*/
 	public function add()
 	{
-		// $this->db->set("nombre", $this->input->post("name"));
-		// $this->db->set("cel", $this->input->post("cel"));
-		// $this->db->set("tel", $this->input->post("tel"));
-		// $this->db->set("mail", $this->input->post("mail"));
-		// $this->db->set("edad", $this->input->post("edad"));
-		// $this->db->set("sexo", $this->input->post("sexo"));
-		// if($this->db->insert("persona"))
-		// {
-		// 	return TRUE;
-		// }
-		// return FALSE;
-
 		$this->save();
 		return $this->db->insert_id();
 
 	}
+
+    public function getPerson($id)
+    {
+        return $this->where('id', $id)->get();
+
+    }
+
+    public function update()
+    {
+        $this->save();
+
+    }
 }

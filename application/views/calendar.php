@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Calendario de eventos con bootstrap y php</title>
+	<title>El Mangrullo Eventos</title>
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>bower_components/bootstrap-calendar/css/calendar.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>bower_components/css/mstyle.css">
@@ -15,7 +15,9 @@
 		<ol class="breadcrumb">
 			<li><a href="<?php echo base_url() ?>calendar">Calendario</a></li>
 			<li><a href="<?php echo base_url() ?>events">Añadir evento</a></li>
+            <li style="float:right"><a href="<?php echo base_url() ?>calendar/do_logout">Salir</a></li>
 		</ol>
+
 		<!-- heading -->
 		<div class="row">
 			<div class="page-header">
@@ -42,7 +44,7 @@
 			<div id="calendar"></div>
 		</div>
 
-<!--		<!--ventana modal para el calendario-->-->
+<!--		<!--ventana modal para el calendario-->
 <!--		<div class="modal fade" id="events-modal">-->
 <!--			<div class="modal-dialog">-->
 <!--				<div class="modal-content">-->
@@ -57,9 +59,9 @@
 <!--						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 <!--						<button type="button" class="btn btn-primary">Save changes</button>-->
 <!--					</div>-->
-<!--				</div><!-- /.modal-content -->-->
-<!--			</div><!-- /.modal-dialog -->-->
-<!--		</div><!-- /.modal -->-->
+<!--				</div><!-- /.modal-content -->
+<!--			</div><!-- /.modal-dialog -->
+<!--		</div><!-- /.modal -->
 	</div>
 
 	<script src="<?php echo base_url() ?>bower_components/underscore/underscore-min.js"></script>
